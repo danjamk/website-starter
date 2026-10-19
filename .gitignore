@@ -1,0 +1,31 @@
+# Build output and dependencies
+dist/
+.astro/
+node_modules/
+
+# Local environment
+.env
+.env.*
+.dev.vars
+.wrangler/
+
+# Editors and OS
+.DS_Store
+.idea/
+.vscode/
+
+# Maintainer-only files (not part of the template)
+CLAUDE.local.md
+COMMIT_MESSAGE.md
+PR_COMMENT.md
+.claude/settings.local.json
+
+# Maintainer skills, symlinked from a private repo. The template's own skills
+# in .claude/skills/ are tracked; only these names are ignored.
+.claude/skills/comment
+.claude/skills/commit
+.claude/skills/pr
+.claude/skills/pr-prep
+.claude/skills/pr-review
+.claude/skills/refine
+.claude/skills/start
