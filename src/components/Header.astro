@@ -1,0 +1,72 @@
+---
+// The header on every page: the site name and the menu from site.config.ts.
+// No script: the menu wraps on small screens instead of collapsing.
+
+import { site } from '../site.config';
+import { cleanPath } from '../clean-path';
+
+const current = cleanPath(Astro.url.pathname);
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="site-header__name" href="/">{site.name}</a>
+    <nav aria-label="Main">
+      <ul class="site-header__nav">
+        {
+          site.nav.map((item) => (
+            <li>
+              <a href={item.href} aria-current={item.href === current ? 'page' : undefined}>
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg);
+  }
+
+  .site-header__inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3) var(--space-5);
+    padding-block: var(--space-4);
+  }
+
+  .site-header__name {
+    font-family: var(--font-heading);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-bold);
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .site-header__nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-header__nav a {
+    color: var(--color-text-muted);
+    text-decoration: none;
+    font-weight: var(--weight-medium);
+  }
+
+  .site-header__nav a:hover,
+  .site-header__nav a[aria-current='page'] {
+    color: var(--color-link);
+  }
+</style>

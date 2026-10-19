@@ -1,0 +1,144 @@
+/*
+ * Base styles for every page. Uses semantic tokens from tokens.css only.
+ * Mobile first: base rules are for phones; min-width queries add larger layouts.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  color: var(--color-text);
+  background: var(--color-bg);
+  /* Keep the footer at the bottom of the window on short pages. */
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  line-height: var(--leading-tight);
+  font-weight: var(--weight-bold);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--text-2xl);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+p {
+  margin: 0 0 var(--space-4);
+}
+
+a {
+  color: var(--color-link);
+  text-underline-offset: 0.15em;
+}
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---- Layout helpers ---------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--content-width);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* Comfortable line length for text, left-aligned with the header. */
+.reading > * {
+  max-width: var(--reading-width);
+}
+
+.section {
+  padding-block: var(--space-7);
+}
+
+.section--alt {
+  background: var(--color-bg-alt);
+}
+
+@media (min-width: 48rem) {
+  .section {
+    padding-block: var(--space-8);
+  }
+}
+
+.lead {
+  font-size: var(--text-lg);
+  color: var(--color-text-muted);
+}
+
+/* ---- Buttons ----------------------------------------------------------- */
+
+.button {
+  display: inline-block;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-sm);
+  background: var(--color-action-bg);
+  color: var(--color-action-text);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+}
+
+.button:hover {
+  background: var(--color-action-bg-hover);
+  color: var(--color-action-text);
+}
+
+/* ---- Accessibility ----------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -100%;
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-bg);
+  border-radius: var(--radius-sm);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
