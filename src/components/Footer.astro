@@ -1,0 +1,73 @@
+---
+// The footer on every page. The last line shows which build this page came from:
+// version, commit and build time. Keep it; it is how to tell an old copy from a new one.
+
+import { site } from '../site.config';
+import { build } from '../build-info';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__inner">
+    <p class="site-footer__name">© {year} {site.name}</p>
+    <ul class="site-footer__links">
+      <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+      {
+        site.footerLinks.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="site-footer__build" data-build>
+      v{build.version} · {build.commit} · built <time datetime={build.time}>{build.time}</time>
+    </p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    background: var(--color-bg-alt);
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+  }
+
+  .site-footer__inner {
+    display: grid;
+    gap: var(--space-3);
+    padding-block: var(--space-6);
+  }
+
+  .site-footer__inner p {
+    margin: 0;
+  }
+
+  .site-footer__name {
+    color: var(--color-text);
+    font-weight: var(--weight-medium);
+  }
+
+  .site-footer__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .site-footer__links a {
+    color: var(--color-text-muted);
+  }
+
+  .site-footer__links a:hover {
+    color: var(--color-link);
+  }
+
+  .site-footer__build {
+    font-variant-numeric: tabular-nums;
+  }
+</style>

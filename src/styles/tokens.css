@@ -1,0 +1,86 @@
+/*
+ * Design tokens: every color, font, size and spacing value the site uses.
+ *
+ * Two layers, because they change for different reasons:
+ *
+ * 1. Brand tokens: what the brand IS (its blue, its gray, its font).
+ *    Changing the brand means editing this layer only.
+ * 2. Semantic tokens: what each value is FOR (body text, page background, buttons).
+ *    Components and pages use these, never the brand tokens directly.
+ *
+ * Never write a color, font or size directly in a component. Add or reuse a token.
+ */
+
+:root {
+  /* ---- 1. Brand tokens ---------------------------------------------- */
+
+  --brand-primary: #2b59c3;        /* main color: buttons, links, highlights */
+  --brand-primary-dark: #1f4396;   /* hover and pressed states */
+  --brand-primary-tint: #eef2fb;   /* light background in the main color */
+
+  --brand-ink: #1a1d21;            /* darkest neutral: body text */
+  --brand-slate: #5b636e;          /* mid neutral: secondary text */
+  --brand-line: #e3e6ea;           /* light neutral: borders and dividers */
+  --brand-mist: #f5f6f8;           /* lightest neutral: alternate backgrounds */
+  --brand-white: #ffffff;
+
+  --brand-font-body: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --brand-font-heading: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  /* ---- 2. Semantic tokens ------------------------------------------- */
+
+  /* Color */
+  --color-text: var(--brand-ink);
+  --color-text-muted: var(--brand-slate);
+  --color-bg: var(--brand-white);
+  --color-bg-alt: var(--brand-mist);
+  --color-bg-highlight: var(--brand-primary-tint);
+  --color-border: var(--brand-line);
+  --color-link: var(--brand-primary);
+  --color-link-hover: var(--brand-primary-dark);
+  --color-action-bg: var(--brand-primary);
+  --color-action-bg-hover: var(--brand-primary-dark);
+  --color-action-text: var(--brand-white);
+  --color-focus: var(--brand-primary);
+
+  /* Type */
+  --font-body: var(--brand-font-body);
+  --font-heading: var(--brand-font-heading);
+
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1.25rem + 1.1vw, 2rem);
+  --text-3xl: clamp(2rem, 1.5rem + 2.2vw, 3.25rem);
+
+  --leading-tight: 1.15;
+  --leading-normal: 1.6;
+
+  --weight-normal: 400;
+  --weight-medium: 500;
+  --weight-bold: 700;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Shape and layout */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.75rem;
+  --content-width: 68rem;
+  --reading-width: 42rem;
+  --page-gutter: var(--space-4);
+}
+
+@media (min-width: 48rem) {
+  :root {
+    --page-gutter: var(--space-6);
+  }
+}

@@ -1,0 +1,15 @@
+---
+// Shown for any address that does not exist, with a real 404 status
+// (wrangler.jsonc: not_found_handling = "404-page").
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Page not found" description="This page does not exist." noindex>
+  <section class="section">
+    <div class="container reading">
+      <h1>Page not found</h1>
+      <p class="lead">This page does not exist, or it has moved.</p>
+      <a class="button" href="/">Go to the home page</a>
+    </div>
+  </section>
+</Base>

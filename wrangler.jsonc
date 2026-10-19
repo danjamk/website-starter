@@ -1,0 +1,12 @@
+// Cloudflare serves the built site from dist/ as static files. There is no
+// Worker script: every page is plain HTML built ahead of time.
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "website",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    // Unknown addresses get dist/404.html with a real 404 status, not the home page.
+    "not_found_handling": "404-page"
+  }
+}

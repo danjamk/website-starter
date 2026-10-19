@@ -1,0 +1,30 @@
+---
+// Privacy page. Accurate for the starter site as shipped: no cookies, no forms,
+// no analytics. Update it when any of those are added.
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+---
+
+<Base title="Privacy" description={`How ${site.name} handles information about visitors.`}>
+  <section class="section">
+    <div class="container reading" data-placeholder>
+      <h1>Privacy</h1>
+      <p>
+        This website does not use cookies, does not run tracking or advertising scripts, and does
+        not collect personal information through forms.
+      </p>
+      <p>
+        The site is hosted by Cloudflare. To deliver pages and protect the site from attacks,
+        Cloudflare processes basic technical information about each visit, such as your IP address
+        and browser type. See
+        <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener"
+          >Cloudflare's privacy policy</a
+        >.
+      </p>
+      <p>
+        If you email us, we use your message and address only to reply to you. To ask about
+        information we hold, write to <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </section>
+</Base>

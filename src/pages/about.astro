@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../site.config';
+---
+
+<Base title="About" description={`About ${site.name}.`}>
+  <section class="section">
+    <div class="container reading">
+      <h1>About {site.name}</h1>
+      <p class="lead" data-placeholder>
+        Who you are, in one or two sentences. This is the line people remember.
+      </p>
+      <div data-placeholder>
+        <p>
+          How the business started, and what you set out to do. Visitors read an About page to
+          decide whether they trust you, so specific details work better than general claims.
+        </p>
+        <p>
+          Who is behind it. A name, a role and a sentence about each person is enough to start.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
