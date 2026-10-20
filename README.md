@@ -36,6 +36,7 @@ Tested 2026-10-20. Cloudflare's screens change; if these steps no longer match, 
 | What Claude does for each request (preview, publish, undo, check) | `.claude/skills/` |
 | How to work on the site with Claude, for the owner | `docs/EDITING-GUIDE.md` |
 | How the site is built and run, for whoever helps the owner | `docs/RUNBOOK.md` |
+| Why the site is built this way, and decisions made since | `docs/adr/` |
 | Changes to this template, and how to apply them to an existing site | `CHANGELOG.md` |
 
 ## Search engines

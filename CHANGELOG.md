@@ -2,6 +2,15 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.4.0 (2026-10-20)
+
+- **Base decision records** in `docs/adr/`: 0001 record decisions, 0002 static pages with no server or database, 0003 Claude is the editor, 0004 every fact in the HTML, 0005 design tokens, 0006 preview then publish on a yes. Plus `docs/adr/README.md`.
+  Existing sites: recommended.
+  How to apply: add the six records and the README. If the site already has records numbered 0001–0006 (written by an interview), renumber the base records to follow the site's highest number and say so in each record's first line.
+- **`CLAUDE.md` hard rule:** when a request goes against a decision record, explain the trade-off and let the person decide.
+  Existing sites: recommended.
+  How to apply: add the "Decisions are in `docs/adr/`" bullet to the hard rules.
+
 ## 0.3.0 (2026-10-20)
 
 - **Claude layer.** `CLAUDE.md` now covers how to talk to the person, how changes reach the live site, what counts as a yes to publishing, hard rules, when to ask for technical help, and a guide index. Skills added in `.claude/skills/`: preview, publish, sync, rollback, check, continue, template-update.
