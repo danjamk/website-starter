@@ -45,7 +45,7 @@ Requires Node 22.12 or later (see `.nvmrc`).
 npm install
 npm run dev       # live-reloading local site at http://localhost:4321
 npm run build     # build the site into dist/
-npm run preview   # serve dist/ the way Cloudflare will
+npm run serve     # serve dist/ the way Cloudflare will
 ```
 
 The footer of every page shows the version, commit and build time, which is how to tell which build you are looking at.

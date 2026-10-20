@@ -8,5 +8,9 @@
     "directory": "./dist",
     // Unknown addresses get dist/404.html with a real 404 status, not the home page.
     "not_found_handling": "404-page"
-  }
+  },
+  // Required for branch previews: Workers Builds runs `npx wrangler preview` on
+  // every branch except main, and it refuses to run without this block. Empty is
+  // enough; the assets settings above apply to previews too.
+  "previews": {}
 }
