@@ -33,6 +33,10 @@ Tested 2026-10-20. Cloudflare's screens change; if these steps no longer match, 
 | Favicon and other files served as-is | `public/` |
 | Your plan, profile and interview answers (not published on the site) | `docs/project/` |
 | Instructions Claude reads in every session | `CLAUDE.md` |
+| What Claude does for each request (preview, publish, undo, check) | `.claude/skills/` |
+| How to work on the site with Claude, for the owner | `docs/EDITING-GUIDE.md` |
+| How the site is built and run, for whoever helps the owner | `docs/RUNBOOK.md` |
+| Changes to this template, and how to apply them to an existing site | `CHANGELOG.md` |
 
 ## Search engines
 
