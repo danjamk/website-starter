@@ -6,9 +6,10 @@ import pkg from '../package.json';
 import { indexable, siteUrl } from './indexing.mjs';
 
 function shortCommit(): string {
-  // Workers Builds sets this; local builds ask git.
+  // Workers Builds sets this; local builds ask git. The first build after the
+  // Deploy button sets it to the branch name, so only trust a real hash.
   const sha = process.env.WORKERS_CI_COMMIT_SHA;
-  if (sha) return sha.slice(0, 7);
+  if (sha && /^[0-9a-f]{7,40}$/.test(sha)) return sha.slice(0, 7);
   try {
     return execSync('git rev-parse --short HEAD', { stdio: ['ignore', 'pipe', 'ignore'] })
       .toString()
