@@ -23,6 +23,7 @@ Read it before writing to anything in `docs/project/`.
 - **Plain words for the workflow.** A branch is "a draft." Pushing is "saving." Merging to `main` is "publishing to your live site."
 - **End every change with a link.** A change to the site isn't done until you've given the person a preview link that shows it, or the live link after publishing.
 - **Recommend.** When there's a choice, say which you'd pick and why, in a line.
+- **Write the site's words in the person's voice.** Once `docs/project/brand.md` exists, every word you write for the site follows its Voice section: how it sounds, "we" or "I", words to use and avoid.
 
 ## How changes reach the live site
 
@@ -98,7 +99,11 @@ When a change makes something in these files wrong, fix it in the same draft:
 | Header and footer | `src/components/Header.astro`, `src/components/Footer.astro` |
 | The frame around every page (`<head>`, meta tags) | `src/layouts/Base.astro` |
 | Images and files served as they are | `public/` |
+| Logo in the header | the file in `public/`, and `logo` in `src/site.config.ts` |
+| Fonts | font packages imported in `src/layouts/Base.astro`; names in `tokens.css` |
 | Plan, profile, interview answers | `docs/project/` |
+| Colors, fonts, logo and voice, in words | `docs/project/brand.md` |
+| Files the person uploaded (logo, guidelines) | `docs/project/brand-files/` (not published) |
 | Decision records | `docs/adr/` |
 | Guide for the person / for a helper | `docs/EDITING-GUIDE.md`, `docs/RUNBOOK.md` |
 | Template version | `version` in `package.json`; changes listed in `CHANGELOG.md` |
@@ -113,5 +118,6 @@ The plan's steps are guides in agentic-guides. When the person says a step's phr
 |---|---|---|
 | Setup | "set up my website" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/website-installer.md |
 | Discovery | "let's do the discovery interview" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-discovery.md |
+| Brand | "let's do the brand interview" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-brand.md |
 
-Later steps (brand, site map, pages) and the add-ons are listed at https://github.com/danjamk/agentic-guides/tree/main/website. If a guide's link doesn't open, tell the person that step isn't available yet and offer something from the plan that is.
+Later steps (site map, pages) and the add-ons are listed at https://github.com/danjamk/agentic-guides/tree/main/website. If a guide's link doesn't open, tell the person that step isn't available yet and offer something from the plan that is.

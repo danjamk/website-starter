@@ -2,6 +2,18 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.5.0 (2026-10-20)
+
+- **Logo in the header.** `logo` in `src/site.config.ts` (`null` by default) shows an image from `public/` in the header, with or without the name next to it.
+  Existing sites: recommended before the brand interview.
+  How to apply: add the `logo` field to `site.config.ts`, and the logo branch, `.site-header__logo` rule and inline-flex `.site-header__name` from the template's `Header.astro`. If the site's header was customized, keep those changes and add only the logo branch.
+- **`docs/project/brand-files/`**, the folder people upload brand files into on GitHub's website.
+  Existing sites: recommended.
+  How to apply: add the folder with the template's `README.md` (a `docs/` save, straight to `main`).
+- **`CLAUDE.md`:** write the site's words in the voice in `docs/project/brand.md`; brand rows in "Where things are"; the brand interview in the guide index.
+  Existing sites: recommended.
+  How to apply: add the voice bullet, the table rows and the guide row.
+
 ## 0.4.0 (2026-10-20)
 
 - **Base decision records** in `docs/adr/`: 0001 record decisions, 0002 static pages with no server or database, 0003 Claude is the editor, 0004 every fact in the HTML, 0005 design tokens, 0006 preview then publish on a yes. Plus `docs/adr/README.md`.
