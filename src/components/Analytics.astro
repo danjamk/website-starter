@@ -1,0 +1,34 @@
+---
+// Visitor statistics scripts, included only when a build variable turns them on.
+// See src/analytics.mjs.
+import { cfWebAnalyticsToken, gaMeasurementId } from '../analytics.mjs';
+
+const cfBeacon = cfWebAnalyticsToken ? JSON.stringify({ token: cfWebAnalyticsToken }) : undefined;
+const gaSrc = gaMeasurementId
+  ? `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(gaMeasurementId)}`
+  : undefined;
+---
+
+{
+  cfBeacon && (
+    <script
+      is:inline
+      defer
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon={cfBeacon}
+    />
+  )
+}
+{gaSrc && <script is:inline async src={gaSrc} />}
+{
+  gaMeasurementId && (
+    <script is:inline define:vars={{ gaMeasurementId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', gaMeasurementId);
+    </script>
+  )
+}
