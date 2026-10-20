@@ -6,15 +6,19 @@ A starter website you maintain by talking to Claude. Plain pages built ahead of 
 
 **Setting up a website?** Start with the website recipe in [agentic-guides](https://github.com/danjamk/agentic-guides). It walks you through the accounts, this button, and making the site your own. You do not need to read further down this page.
 
-> The Deploy button path is being tested. Until that is done, treat it as unverified (2026-10-19).
-
 ## What the button does
 
 1. Copies this repository into your own GitHub account.
 2. Creates a Cloudflare Worker that serves the site, and connects it to your copy.
-3. Builds and publishes the site at a `workers.dev` address.
+3. Builds and publishes the site at a `workers.dev` address. This took under a minute when tested.
 
-After that, every change merged into `main` publishes automatically, and every other branch gets its own preview address.
+After that, every change merged into `main` publishes automatically, and every other branch gets its own preview address: `<branch>-<project>.<your-subdomain>.workers.dev`.
+
+On the setup page, **check "Create private Git repository"**. It is unchecked by default. If you miss it, make the copy private afterward in your repository's Settings on GitHub; the site keeps publishing.
+
+If you land on a "Create an app" page instead of the setup page (this can happen the first time you connect GitHub), choose **Continue with GitHub**, then **Clone a public repository via Git URL**, and paste `https://github.com/danjamk/website-starter`.
+
+Tested 2026-10-20. Cloudflare's screens change; if these steps no longer match, the recipe in agentic-guides has the current ones.
 
 ## Where things are
 
