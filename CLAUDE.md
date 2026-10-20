@@ -104,6 +104,7 @@ When a change makes something in these files wrong, fix it in the same draft:
 | Plan, profile, interview answers | `docs/project/` |
 | Colors, fonts, logo and voice, in words | `docs/project/brand.md` |
 | Files the person uploaded (logo, guidelines) | `docs/project/brand-files/` (not published) |
+| Every page, its purpose, menu placement and status | `docs/project/sitemap.md`; keep it in step when pages are added, renamed or removed |
 | Decision records | `docs/adr/` |
 | Guide for the person / for a helper | `docs/EDITING-GUIDE.md`, `docs/RUNBOOK.md` |
 | Template version | `version` in `package.json`; changes listed in `CHANGELOG.md` |
@@ -119,5 +120,6 @@ The plan's steps are guides in agentic-guides. When the person says a step's phr
 | Setup | "set up my website" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/website-installer.md |
 | Discovery | "let's do the discovery interview" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-discovery.md |
 | Brand | "let's do the brand interview" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-brand.md |
+| Site map | "let's plan the pages" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-sitemap.md |
 
-Later steps (site map, pages) and the add-ons are listed at https://github.com/danjamk/agentic-guides/tree/main/website. If a guide's link doesn't open, tell the person that step isn't available yet and offer something from the plan that is.
+Later steps (pages) and the add-ons are listed at https://github.com/danjamk/agentic-guides/tree/main/website. If a guide's link doesn't open, tell the person that step isn't available yet and offer something from the plan that is.

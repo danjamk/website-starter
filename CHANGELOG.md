@@ -2,6 +2,12 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.5.1 (2026-10-20)
+
+- **`CLAUDE.md`:** the site map interview in the guide index, and `docs/project/sitemap.md` in "Where things are", with a note to keep it in step with the pages.
+  Existing sites: recommended.
+  How to apply: add the guide row and the table row.
+
 ## 0.5.0 (2026-10-20)
 
 - **Logo in the header.** `logo` in `src/site.config.ts` (`null` by default) shows an image from `public/` in the header, with or without the name next to it.
