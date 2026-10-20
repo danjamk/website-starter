@@ -31,6 +31,8 @@ Tested 2026-10-20. Cloudflare's screens change; if these steps no longer match, 
 | Header or footer on every page | `src/components/Header.astro`, `src/components/Footer.astro` |
 | The frame around every page (`<head>`, meta tags) | `src/layouts/Base.astro` |
 | Favicon and other files served as-is | `public/` |
+| Your plan, profile and interview answers (not published on the site) | `docs/project/` |
+| Instructions Claude reads in every session | `CLAUDE.md` |
 
 ## Search engines
 
