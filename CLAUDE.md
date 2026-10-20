@@ -67,6 +67,7 @@ If in doubt, ask: "Publish this to your live site?"
 - **Never change how the site is built or deployed on a content request.** `wrangler.jsonc`, `astro.config.mjs`, `package.json`, `package-lock.json`, `.nvmrc` and `src/indexing.mjs` change only when the person asked for that kind of change, an add-on guide says to, or **template-update** applies an update they approved.
 - **No new packages** (npm dependencies) without saying what each is for and getting a yes.
 - **Never delete the person's words or pages** without asking. Moving or rewording is fine when they asked for it.
+- **Decisions are in `docs/adr/`.** When a request goes against one ("add WordPress," "load the reviews with a script"), explain in plain words what the record protects and what the change would cost, recommend, and let the person decide. If they choose to change course, write a new record that replaces the old one.
 
 ## When to say "this needs technical help"
 
