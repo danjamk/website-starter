@@ -1,16 +1,34 @@
 ---
-// The header on every page: the site name and the menu from site.config.ts.
+// The header on every page: the logo or site name, and the menu from site.config.ts.
 // No script: the menu wraps on small screens instead of collapsing.
 
 import { site } from '../site.config';
 import { cleanPath } from '../clean-path';
 
 const current = cleanPath(Astro.url.pathname);
+const logo = site.logo;
 ---
 
 <header class="site-header">
   <div class="container site-header__inner">
-    <a class="site-header__name" href="/">{site.name}</a>
+    <a class="site-header__name" href="/">
+      {
+        logo ? (
+          <>
+            <img
+              class="site-header__logo"
+              src={logo.src}
+              alt={logo.showName ? '' : site.name}
+              height={logo.height}
+              style={`height: ${logo.height}px`}
+            />
+            {logo.showName && <span>{site.name}</span>}
+          </>
+        ) : (
+          site.name
+        )
+      }
+    </a>
     <nav aria-label="Main">
       <ul class="site-header__nav">
         {
@@ -43,11 +61,20 @@ const current = cleanPath(Astro.url.pathname);
   }
 
   .site-header__name {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
     font-family: var(--font-heading);
     font-size: var(--text-lg);
     font-weight: var(--weight-bold);
     color: var(--color-text);
     text-decoration: none;
+  }
+
+  .site-header__logo {
+    display: block;
+    width: auto;
+    max-width: 60vw;
   }
 
   .site-header__nav {

@@ -7,6 +7,11 @@ export const site = {
   description: 'A short description of the business, shown in search results and link previews.',
   email: 'hello@example.com',
 
+  // The logo in the header. null shows the name as text instead.
+  // src is a file in public/ ('/logo.svg'); height is in pixels;
+  // showName also shows the name as text next to the logo.
+  logo: null as null | { src: string; height: number; showName: boolean },
+
   // The menu at the top of every page, in order.
   nav: [
     { label: 'Home', href: '/' },
