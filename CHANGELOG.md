@@ -2,6 +2,18 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.6.0 (2026-10-20)
+
+- **Shared card and image styles.** `.cards`/`.card` move from the home page into `src/styles/global.css` so any page can use them, and `.figure` is added for a photo with a caption.
+  Existing sites: recommended before the page interview.
+  How to apply: add the two blocks to `global.css`. If the home page still has its own `.cards`/`.card` styles, remove them there, unless the person changed them, in which case leave both.
+- **`docs/project/uploads/`**, the folder people upload page photos and documents into.
+  Existing sites: recommended.
+  How to apply: add the folder with the template's `README.md` (a `docs/` save, straight to `main`).
+- **`CLAUDE.md`:** the page interview in the guide index; uploads, images, documents and shared building blocks in "Where things are".
+  Existing sites: recommended.
+  How to apply: add the guide row and the table rows.
+
 ## 0.5.1 (2026-10-20)
 
 - **`CLAUDE.md`:** the site map interview in the guide index, and `docs/project/sitemap.md` in "Where things are", with a note to keep it in step with the pages.
