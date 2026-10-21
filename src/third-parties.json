@@ -1,0 +1,4 @@
+{
+  "_about": "Other companies whose scripts, frames, images or stylesheets the site's owner has approved. npm run check fails on any other outside host. Add an entry only after the owner agrees, and say what it is for. Example: { \"host\": \"www.youtube-nocookie.com\", \"for\": \"Video on the About page\", \"approved\": \"2026-11-02\" }",
+  "approved": []
+}

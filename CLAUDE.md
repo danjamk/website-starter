@@ -109,6 +109,8 @@ When a change makes something in these files wrong, fix it in the same draft:
 | Decision records | `docs/adr/` |
 | Guide for the person / for a helper | `docs/EDITING-GUIDE.md`, `docs/RUNBOOK.md` |
 | Template version | `version` in `package.json`; changes listed in `CHANGELOG.md` |
+| Checks on the built site | `npm run check` (`scripts/check.mjs`), on GitHub in `.github/workflows/check.yml` |
+| Other companies the owner approved (embeds, widgets) | `src/third-parties.json`; `npm run check` fails on any other outside host |
 
 Every fact a visitor or a search engine needs is in the page's HTML. Don't move content into JavaScript that runs in the browser; search engines and AI tools often don't run it.
 
