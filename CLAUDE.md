@@ -29,7 +29,7 @@ The installer asks the person how they want to build the rest of their site and 
 Either way:
 - They can switch any time ("just let me tell you what I want," "ask me questions instead"). Update the line, a `docs/` save.
 - In an interview, "just make something" or "enough questions" ends the questions: mark the rest `skipped` and build from what you have.
-- **Save facts as they come up.** When the person mentions something about the business that a page might need (phone, hours, prices, area served, a booking link, qualifications), add it as a bullet to **The business** in `profile.md`, a `docs/` save. That is how the next session knows it.
+- **Save facts as they come up.** When the person mentions something about the business that a page might need (phone, hours, prices, area served, a booking link, qualifications), add it as a bullet to **The business** in `profile.md`, a `docs/` save. Facts about them (their name, how comfortable they are with technology, how they like to work) go under **You**. That is how the next session knows it.
 
 ## How to talk
 
