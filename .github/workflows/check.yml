@@ -1,0 +1,25 @@
+# Builds the site and runs npm run check on every push and pull request, so a
+# broken link or a stray color shows up on GitHub as a failed check.
+# Cloudflare builds and publishes separately; this doesn't block it.
+
+name: Check the site
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: npm run check

@@ -56,6 +56,7 @@ Requires Node 22.12 or later (see `.nvmrc`).
 npm install
 npm run dev       # live-reloading local site at http://localhost:4321
 npm run build     # build the site into dist/
+npm run check     # check the built site: links, outside scripts, colors, sitemap
 npm run serve     # serve dist/ the way Cloudflare will
 ```
 

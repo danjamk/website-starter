@@ -2,6 +2,18 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.8.0 (2026-10-20)
+
+- **Build checks.** `npm run check` (`scripts/check.mjs`, no dependencies) checks the built site: internal links and anchors, the build stamp on every page, no outside hosts except analytics and `src/third-parties.json`, no colors outside `tokens.css`, sitemap matches pages. `npm run check:strict` also fails on sample text.
+  Existing sites: recommended.
+  How to apply: add `scripts/check.mjs`, `src/third-parties.json` (listing any embeds the owner already approved), and the `check` and `check:strict` scripts in `package.json`. Run it; fix or list what it finds.
+- **GitHub Actions workflow** `.github/workflows/check.yml`: build and check on every push and pull request.
+  Existing sites: optional.
+  How to apply: add the file. If the push is refused for lacking the `workflow` scope, ask the person or their helper to add it on GitHub's website.
+- **Skills:** preview runs `npm run check`; publish runs `check:strict` on a launched site; check reports the GitHub check runs.
+  Existing sites: recommended.
+  How to apply: copy the changed steps from the template's skills.
+
 ## 0.7.0 (2026-10-20)
 
 - **Visitor statistics by build variable.** `src/analytics.mjs` and `src/components/Analytics.astro`, included at the end of `Base.astro`. `CF_WEB_ANALYTICS_TOKEN` adds Cloudflare Web Analytics; `GA_MEASUREMENT_ID` adds Google Analytics. Both load only on builds search engines can see. Nothing changes until a variable is set.

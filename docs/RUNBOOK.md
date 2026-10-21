@@ -42,11 +42,17 @@ Pushes that only change `docs/` still rebuild production. This is deliberate (no
 | Claude Code can't see the repository | Private repository without the Claude GitHub app | Install it on this repository |
 | Live site shows an old version | Last production build failed | Cloudflare → Deployments → the newest build's log |
 
+## Checks
+
+`npm run check` (after `npm run build`) checks the built site: internal links and `#anchors` resolve, every page has the build stamp, nothing loads from another company's servers unless it's listed in `src/third-parties.json` or added by the analytics build variables, no colors are set outside `src/styles/tokens.css`, and the sitemap matches the pages. `npm run check:strict` also fails on sample text (`data-placeholder`); Claude runs it before publishing to a launched site.
+
+`.github/workflows/check.yml` runs the build and `npm run check` on GitHub for every push and pull request. It reports; it doesn't stop Cloudflare from publishing. On a private repository it uses GitHub Actions minutes, about a minute per push, well within the free allowance for a site this size. Pushing a change to a workflow file needs a GitHub token with the `workflow` scope, which Claude Code's connection may not have; if template-update can't push one, make that change by hand.
+
 ## Doing things by hand
 
 You can work on this repository like any other. Keep to the owner's flow so Claude's rules stay true:
 
-- `npm run dev` for a live-reloading local site; `npm run serve` to serve `dist/` the way Cloudflare does.
+- `npm run dev` for a live-reloading local site; `npm run serve` to serve `dist/` the way Cloudflare does; `npm run build && npm run check` before pushing.
 - Work on a branch; the owner sees your preview link before anything reaches `main`.
 - Never force-push or rewrite `main`. Undo with `git revert`.
 - **Emergency rollback:** Cloudflare → Workers & Pages → the Worker → Deployments → roll back to an earlier deployment. It's temporary; the next push to `main` deploys `main` again, so revert the bad commit too.
