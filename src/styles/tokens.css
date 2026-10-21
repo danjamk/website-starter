@@ -26,7 +26,16 @@
 
   --brand-font-body: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   --brand-font-heading: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
 
+/*
+ * Semantic tokens are declared on .brand-scope too, so an element that sets
+ * different --brand-* values (the brand interview's options page) passes them
+ * through to its text, links and buttons. On :root alone they'd be resolved
+ * once, from the root's brand values.
+ */
+:root,
+.brand-scope {
   /* ---- 2. Semantic tokens ------------------------------------------- */
 
   /* Color */
@@ -80,7 +89,8 @@
 }
 
 @media (min-width: 48rem) {
-  :root {
+  :root,
+  .brand-scope {
     --page-gutter: var(--space-6);
   }
 }

@@ -127,6 +127,11 @@ img {
   color: var(--color-action-text);
 }
 
+/* A button is inline, so give whatever follows it room to breathe. */
+.button + * {
+  margin-top: var(--space-5);
+}
+
 /* ---- Cards: a grid of short items (services, features, team) ----------- */
 
 .cards {

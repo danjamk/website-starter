@@ -185,6 +185,14 @@ if (withSampleText.length) {
   else notes.push(`Pages ${message}.`);
 }
 
+// The starter's placeholder email (site.config.ts) on any page, footer included.
+const withSampleEmail = pages.filter((page) => /[\w.+-]+@example\.(com|org|net)/.test(page.html)).map((page) => page.path);
+if (withSampleEmail.length) {
+  const message = `the sample email address (hello@example.com) is still on: ${withSampleEmail.join(', ')}. Set email in src/site.config.ts`;
+  if (strict) fail('Sample email', message);
+  else notes.push(`The ${message.slice(4)}.`);
+}
+
 // ---- Report --------------------------------------------------------------
 
 console.log(`Checked ${pages.length} pages and ${linkCount} internal links${strict ? ' (strict)' : ''}.`);
