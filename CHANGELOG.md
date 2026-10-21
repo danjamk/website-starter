@@ -2,6 +2,20 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.9.0 (2026-10-20)
+
+From a rehearsal of the whole recipe.
+
+- **Semantic tokens also on `.brand-scope`.** An element with `class="brand-scope"` that sets its own `--brand-*` values now passes them to its text, links and buttons. The brand interview's options page needs this; without it every option showed the current colors.
+  Existing sites: recommended before the brand interview.
+  How to apply: in `tokens.css`, close the `:root` block after the brand tokens and open `:root, .brand-scope {` for the semantic tokens; add `.brand-scope` to the `:root` selector in the gutter media query.
+- **Space after a button.** `.button + *` gets a top margin, so a link or cards right after a button don't touch it.
+  Existing sites: optional.
+  How to apply: add the rule after `.button:hover` in `global.css`.
+- **The starter's email in checks.** `npm run check` notes pages still showing `hello@example.com`; `check:strict` fails on it.
+  Existing sites: recommended.
+  How to apply: copy the "placeholder email" block from the template's `scripts/check.mjs`.
+
 ## 0.8.0 (2026-10-20)
 
 - **Build checks.** `npm run check` (`scripts/check.mjs`, no dependencies) checks the built site: internal links and anchors, the build stamp on every page, no outside hosts except analytics and `src/third-parties.json`, no colors outside `tokens.css`, sitemap matches pages. `npm run check:strict` also fails on sample text.
