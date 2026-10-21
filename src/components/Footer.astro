@@ -6,13 +6,15 @@ import { site } from '../site.config';
 import { build } from '../build-info';
 
 const year = new Date().getFullYear();
+const tel = site.phone.replace(/[^\d+]/g, '');
 ---
 
 <footer class="site-footer">
   <div class="container site-footer__inner">
     <p class="site-footer__name">© {year} {site.name}</p>
     <ul class="site-footer__links">
-      <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+      {site.phone && <li><a href={`tel:${tel}`}>{site.phone}</a></li>}
+      {site.email && <li><a href={`mailto:${site.email}`}>{site.email}</a></li>}
       {
         site.footerLinks.map((link) => (
           <li>

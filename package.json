@@ -1,6 +1,6 @@
 {
   "name": "website-starter",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "private": true,
   "type": "module",
   "description": "A starter website you maintain by talking to Claude. Astro static site on Cloudflare Workers.",

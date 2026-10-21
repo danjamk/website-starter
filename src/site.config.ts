@@ -5,7 +5,9 @@ export const site = {
   name: 'Your Business Name',
   tagline: 'One sentence about what you do and who it is for.',
   description: 'A short description of the business, shown in search results and link previews.',
+  // How visitors reach the business. Leave one as '' to hide it everywhere.
   email: 'hello@example.com',
+  phone: '',
 
   // The logo in the header. null shows the name as text instead.
   // src is a file in public/ ('/logo.svg'); height is in pixels;

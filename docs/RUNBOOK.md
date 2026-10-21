@@ -44,7 +44,7 @@ Pushes that only change `docs/` still rebuild production. This is deliberate (no
 
 ## Checks
 
-`npm run check` (after `npm run build`) checks the built site: internal links and `#anchors` resolve, every page has the build stamp, nothing loads from another company's servers unless it's listed in `src/third-parties.json` or added by the analytics build variables, no colors are set outside `src/styles/tokens.css`, and the sitemap matches the pages. `npm run check:strict` also fails on sample text (`data-placeholder`) and on the starter's `example.com` email address; Claude runs it before publishing to a launched site.
+`npm run check` (after `npm run build`) checks the built site: internal links and `#anchors` resolve, every page has the build stamp, nothing loads from another company's servers unless it's listed in `src/third-parties.json` or added by the analytics build variables, no colors are set outside `src/styles/tokens.css`, text and buttons meet WCAG AA contrast (from the tokens), and the sitemap matches the pages. `npm run check:strict` also fails on sample text (`data-placeholder`) and on the starter's `hello@example.com` email address; Claude runs it before publishing to a launched site.
 
 `.github/workflows/check.yml` runs the build and `npm run check` on GitHub for every push and pull request. It reports; it doesn't stop Cloudflare from publishing. On a private repository it uses GitHub Actions minutes, about a minute per push, well within the free allowance for a site this size. Pushing a change to a workflow file needs a GitHub token with the `workflow` scope, which Claude Code's connection may not have; if template-update can't push one, make that change by hand.
 
