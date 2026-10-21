@@ -2,6 +2,17 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.7.0 (2026-10-20)
+
+- **Visitor statistics by build variable.** `src/analytics.mjs` and `src/components/Analytics.astro`, included at the end of `Base.astro`. `CF_WEB_ANALYTICS_TOKEN` adds Cloudflare Web Analytics; `GA_MEASUREMENT_ID` adds Google Analytics. Both load only on builds search engines can see. Nothing changes until a variable is set.
+  Existing sites: recommended before the analytics add-on.
+  How to apply: add the two files and the `<Analytics />` line before `</body>` in `Base.astro`.
+- **`CLAUDE.md`:** the custom domain and analytics add-ons in the guide index; analytics only through the add-on.
+  Existing sites: recommended.
+  How to apply: add the two guide rows and the sentence at the end of the third-party hard rule.
+- **`docs/RUNBOOK.md`:** analytics variables and the www redirect rule in the settings table.
+  Existing sites: optional.
+
 ## 0.6.0 (2026-10-20)
 
 - **Shared card and image styles.** `.cards`/`.card` move from the home page into `src/styles/global.css` so any page can use them, and `.figure` is added for a photo with a caption.

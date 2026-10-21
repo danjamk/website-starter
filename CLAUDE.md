@@ -64,7 +64,7 @@ If in doubt, ask: "Publish this to your live site?"
 
 - **No secrets anywhere in this repository:** passwords, API keys, tokens, account numbers. If the person pastes one, don't use or repeat it; tell them to change it, because it's now in the conversation history. Keys that a site feature needs go in Cloudflare's settings, and the person enters them there themselves.
 - **Never** `git push --force`, `git rebase`, `git reset --hard`, or anything else that rewrites saved history. To undo, add a change that reverses it (**rollback**).
-- **No third-party scripts, embeds, fonts, trackers or widgets** without the person's sign-off on that specific company. Tell them what it is, what it sends to that company, and that it may need a cookie notice. The site loads nothing from other websites today; that is deliberate.
+- **No third-party scripts, embeds, fonts, trackers or widgets** without the person's sign-off on that specific company. Tell them what it is, what it sends to that company, and that it may need a cookie notice. The site loads nothing from other websites today; that is deliberate. Visitor statistics are added only through the analytics add-on, which switches them on with build variables (`src/analytics.mjs`). Never paste an analytics snippet into a page.
 - **Never change how the site is built or deployed on a content request.** `wrangler.jsonc`, `astro.config.mjs`, `package.json`, `package-lock.json`, `.nvmrc` and `src/indexing.mjs` change only when the person asked for that kind of change, an add-on guide says to, or **template-update** applies an update they approved.
 - **No new packages** (npm dependencies) without saying what each is for and getting a yes.
 - **Never delete the person's words or pages** without asking. Moving or rewording is fine when they asked for it.
@@ -123,5 +123,7 @@ The plan's steps are guides in agentic-guides. When the person says a step's phr
 | Brand | "let's do the brand interview" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-brand.md |
 | Site map | "let's plan the pages" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-sitemap.md |
 | A page | "let's work on the <page> page" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/interview-page.md |
+| Own web address (add-on) | "connect my domain" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/addon-custom-domain.md |
+| Visitor statistics (add-on) | "add visitor statistics" | https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/addon-analytics.md |
 
-The add-ons are listed at https://github.com/danjamk/agentic-guides/tree/main/website. If a guide's link doesn't open, tell the person that step isn't available yet and offer something from the plan that is.
+All add-ons are listed at https://github.com/danjamk/agentic-guides/tree/main/website. If a guide's link doesn't open, tell the person that step isn't available yet and offer something from the plan that is.

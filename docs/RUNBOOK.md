@@ -23,6 +23,8 @@ The common requests that run against these decisions: a CMS or page builder, Wor
 |---|---|---|
 | Cloudflare → Worker → Settings → Build → build variables (the label may differ; these are variables for the build, not for the running Worker) | `SITE_URL` | The site's real address. Until it's set, every build is `noindex` with no sitemap. |
 | Same place | `PRODUCTION_BRANCH` | Optional. Defaults to `main`. Only builds from it can be indexed. |
+| Same place | `CF_WEB_ANALYTICS_TOKEN`, `GA_MEASUREMENT_ID` | Optional visitor statistics (`src/analytics.mjs`). Included only on indexable builds. Cloudflare Web Analytics' automatic setup, if it's on, works without the token and isn't visible in the repository: check Cloudflare → Web Analytics. |
+| Cloudflare → the domain → Rules → Redirect Rules | `www` to the root address (or the reverse) | Set up by the custom domain add-on. The Worker's custom domain covers only one hostname. |
 | Cloudflare → Worker → Settings → Build | Build `npm run build`, deploy `npx wrangler deploy`, preview `npx wrangler preview`, preview builds on | Set by the Deploy button. |
 | GitHub → repository settings | Private | The plan and interview answers are in `docs/`. |
 | GitHub → Applications | Cloudflare Workers and Pages app; Claude app | Cloudflare builds from the repository; Claude Code sessions read and push it. |
