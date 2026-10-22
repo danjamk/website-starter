@@ -6,7 +6,7 @@ You change your site by telling Claude what you want, in your own words. There's
 
 1. Go to claude.ai/code.
 2. Below the message box, pick your site and the environment you set up.
-3. Say what you want. If you're not sure, say **"let's keep going"** and Claude suggests the next step from your plan.
+3. Say what you want. If you're not sure, say **"let's keep going"** and Claude suggests the next step from your plan, or **"what's left?"** for what still needs doing before your site is finished.
 
 ## Asking for changes
 
@@ -47,7 +47,12 @@ Say **"undo that"** or **"put the site back to how it was before …"**. Claude 
 
 ## Your plan
 
-Your plan is a list of steps, about 30 minutes each, that Claude keeps up to date. You can stop at any point, even partway through a question, and pick up next time. Ask Claude to show you the plan whenever you like.
+There are two ways to build your site, and you can switch any time:
+
+- **Guided:** Claude asks you questions in short sessions, about 20–30 minutes each, and keeps a plan: your look, your pages, then going live. You can stop at any point, even partway through a question, and pick up next time.
+- **Just tell Claude what you want:** "add a prices page," "make it teal." Claude asks only what each change needs. Say "just make something" if you'd rather react to a first version than answer questions.
+
+Either way, Claude keeps your plan up to date. Ask to see it whenever you like.
 
 ## What Claude won't do without asking you first
 

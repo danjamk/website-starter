@@ -1,20 +1,34 @@
 ---
-// Contact page. Email only: a contact form needs somewhere to send submissions,
-// which a static site does not have. The contact form add-on sets one up.
+// Contact page. Phone and email from site.config.ts, whichever are set. A contact
+// form needs somewhere to send submissions, which a static site does not have;
+// the contact form add-on sets one up.
 import Base from '../layouts/Base.astro';
 import { site } from '../site.config';
+
+const tel = site.phone.replace(/[^\d+]/g, '');
 ---
 
 <Base title="Contact" description={`How to get in touch with ${site.name}.`}>
   <section class="section">
     <div class="container reading">
       <h1>Contact</h1>
-      <p class="lead">The quickest way to reach us is email.</p>
-      <p class="contact-email">
-        <a href={`mailto:${site.email}`}>{site.email}</a>
-      </p>
+      <p class="lead" data-placeholder>Which way you prefer people to get in touch, in a sentence.</p>
+      {
+        site.phone && (
+          <p class="contact-detail">
+            <a href={`tel:${tel}`}>{site.phone}</a>
+          </p>
+        )
+      }
+      {
+        site.email && (
+          <p class="contact-detail">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </p>
+        )
+      }
       <p data-placeholder>
-        When you can expect a reply, and anything that helps people write to you: your hours,
+        When you can expect a reply, and anything that helps people get in touch: your hours,
         where you are based, or what to include in a first message.
       </p>
     </div>
@@ -22,7 +36,7 @@ import { site } from '../site.config';
 </Base>
 
 <style>
-  .contact-email {
+  .contact-detail {
     font-size: var(--text-xl);
     font-weight: var(--weight-medium);
   }

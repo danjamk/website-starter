@@ -2,6 +2,25 @@
 
 Changes to the website-starter template, newest first. Each site records the template version it's at in `package.json` (`version`). Claude's `template-update` skill reads this file to bring a site up to date, so each entry says whether existing sites need it and how to apply it.
 
+## 0.10.0 (2026-10-21)
+
+From simulated runs of the whole recipe with four kinds of business.
+
+- **Phone number.** `phone` in `site.config.ts`, shown in the footer and on the Contact page with a tap-to-call link. `''` hides the email or the phone everywhere. The Contact page's opening line is now sample text, because not every business wants email first.
+  Existing sites: recommended.
+  How to apply: add `phone: ''` after `email`; copy the footer's two contact lines, the Contact page's contact block and the Privacy page's last paragraph from the template.
+- **Contrast and tab icon checks.** `npm run check` fails when text, links or buttons don't meet WCAG AA contrast with the colors in `tokens.css`, and notes a browser tab icon still in the starter's blue. The brand interview's temporary options page is exempt from the colors check. The sample email check matches only `hello@example.com`.
+  Existing sites: recommended.
+  How to apply: copy `scripts/check.mjs` from the template. Run it; fix any contrast problem it reports.
+- **Two ways of working.** `CLAUDE.md` follows `PLAN.md`'s new `**Way of working:**` line: guided (the interviews) or direct (the person says what they want). It also saves business facts to `profile.md` as they come up, and has a voice rule for sites without `brand.md`.
+  Existing sites: recommended.
+  How to apply: copy the "Project state" and "Two ways of working" sections, the voice line in "How to talk", the social feed sentence in the third-party rule, and the changed rows in "Where things are".
+- **Skills.** **preview** handles a new main color (tab icon, contrast), adding and removing pages, the sample email, and sample text left on a changed page. **publish** keeps `PLAN.md`, `sitemap.md` and the brand record in step. **continue** answers "what's left?" from the checks.
+  Existing sites: recommended.
+  How to apply: copy the three skills from the template.
+- **`docs/EDITING-GUIDE.md`:** the two ways of working, and "what's left?".
+  Existing sites: optional.
+
 ## 0.9.0 (2026-10-20)
 
 From a rehearsal of the whole recipe.

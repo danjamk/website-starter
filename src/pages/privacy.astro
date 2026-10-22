@@ -22,8 +22,16 @@ import { site } from '../site.config';
         >.
       </p>
       <p>
-        If you email us, we use your message and address only to reply to you. To ask about
-        information we hold, write to <a href={`mailto:${site.email}`}>{site.email}</a>.
+        If you get in touch, we use your message and contact details only to reply to you. To
+        ask about information we hold, {
+          site.email ? (
+            <>write to <a href={`mailto:${site.email}`}>{site.email}</a>.</>
+          ) : site.phone ? (
+            <>call us on <a href={`tel:${site.phone.replace(/[^\d+]/g, '')}`}>{site.phone}</a>.</>
+          ) : (
+            <>contact us.</>
+          )
+        }
       </p>
     </div>
   </section>

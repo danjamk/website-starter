@@ -7,15 +7,29 @@ This repository is a website built from [website-starter](https://github.com/dan
 The person's plan, profile and interview answers live in `docs/project/`. Read them at the start of every session, before doing anything else:
 
 1. Switch to `main` and run `git pull`.
-2. Read `docs/project/PLAN.md` and tell the person the "Next up" line, unless they already asked for something.
+2. Read `docs/project/PLAN.md`, including its `**Way of working:**` line (below). Unless they already asked for something: in the guided way, tell them the "Next up" line; in the direct way, ask what they'd like to change.
 3. Read `docs/project/profile.md`. It says how technical they are; match it.
 4. If a file in `docs/project/interviews/` has `**Status:** in progress`, mention it in one line.
 5. If a draft (a branch other than `main`) has changes that were never published, mention it in one line.
+6. If they only said hello, also say what was last published, in one line: `git log -1 --no-merges --format='%s (%cr)' main -- src public`.
 
 The format, the save rules and the resume rules are in STATE.md:
 https://raw.githubusercontent.com/danjamk/agentic-guides/main/website/STATE.md
 
 Read it before writing to anything in `docs/project/`.
+
+## Two ways of working
+
+The installer asks the person how they want to build the rest of their site and saves the answer in `PLAN.md`'s `**Way of working:**` line.
+
+- **Guided:** the plan's interviews, one step at a time. Suggest the "Next up" line.
+- **Direct:** the person says what they want and you make it. Don't suggest the interviews; they've declined them. Ask only what the change needs, at most three questions before a preview. When a fact is missing, make a first version with marked sample text (`data-placeholder`) and say what's needed to finish it. Offer an interview only when they ask for help deciding, such as "I don't know what pages I need."
+- **No line** (a site set up before this was asked): treat it as guided, and offer the choice once.
+
+Either way:
+- They can switch any time ("just let me tell you what I want," "ask me questions instead"). Update the line, a `docs/` save.
+- In an interview, "just make something" or "enough questions" ends the questions: mark the rest `skipped` and build from what you have.
+- **Save facts as they come up.** When the person mentions something about the business that a page might need (phone, hours, prices, area served, a booking link, qualifications), add it as a bullet to **The business** in `profile.md`, a `docs/` save. Facts about them (their name, how comfortable they are with technology, how they like to work) go under **You**. That is how the next session knows it.
 
 ## How to talk
 
@@ -23,7 +37,7 @@ Read it before writing to anything in `docs/project/`.
 - **Plain words for the workflow.** A branch is "a draft." Pushing is "saving." Merging to `main` is "publishing to your live site."
 - **End every change with a link.** A change to the site isn't done until you've given the person a preview link that shows it, or the live link after publishing.
 - **Recommend.** When there's a choice, say which you'd pick and why, in a line.
-- **Write the site's words in the person's voice.** Once `docs/project/brand.md` exists, every word you write for the site follows its Voice section: how it sounds, "we" or "I", words to use and avoid.
+- **Write the site's words in the person's voice.** Once `docs/project/brand.md` exists, every word you write for the site follows its Voice section: how it sounds, "we" or "I", words to use and avoid. Until then, write plainly and warmly, use "we" or "I" the way the person does when they talk to you, and reuse their own words where they work.
 
 ## How changes reach the live site
 
@@ -64,7 +78,7 @@ If in doubt, ask: "Publish this to your live site?"
 
 - **No secrets anywhere in this repository:** passwords, API keys, tokens, account numbers. If the person pastes one, don't use or repeat it; tell them to change it, because it's now in the conversation history. Keys that a site feature needs go in Cloudflare's settings, and the person enters them there themselves.
 - **Never** `git push --force`, `git rebase`, `git reset --hard`, or anything else that rewrites saved history. To undo, add a change that reverses it (**rollback**).
-- **No third-party scripts, embeds, fonts, trackers or widgets** without the person's sign-off on that specific company. Tell them what it is, what it sends to that company, and that it may need a cookie notice. The site loads nothing from other websites today; that is deliberate. Visitor statistics are added only through the analytics add-on, which switches them on with build variables (`src/analytics.mjs`). Never paste an analytics snippet into a page.
+- **No third-party scripts, embeds, fonts, trackers or widgets** without the person's sign-off on that specific company. Tell them what it is, what it sends to that company, and that it may need a cookie notice. The site loads nothing from other websites today; that is deliberate. Visitor statistics are added only through the analytics add-on, which switches them on with build variables (`src/analytics.mjs`). Never paste an analytics snippet into a page. A social media feed (Instagram, Facebook) needs another company's widget; recommend a plain link to the profile instead, which needs no approval.
 - **Never change how the site is built or deployed on a content request.** `wrangler.jsonc`, `astro.config.mjs`, `package.json`, `package-lock.json`, `.nvmrc` and `src/indexing.mjs` change only when the person asked for that kind of change, an add-on guide says to, or **template-update** applies an update they approved.
 - **No new packages** (npm dependencies) without saying what each is for and getting a yes.
 - **Never delete the person's words or pages** without asking. Moving or rewording is fine when they asked for it.
@@ -92,7 +106,7 @@ When a change makes something in these files wrong, fix it in the same draft:
 
 | What | File |
 |---|---|
-| Business name, tagline, email, menus | `src/site.config.ts` |
+| Business name, tagline, email, phone, menus | `src/site.config.ts` (`''` hides the email or phone everywhere) |
 | Colors, fonts, sizes, spacing | `src/styles/tokens.css` (brand colors at the top; components use the semantic names below them) |
 | Base page styles | `src/styles/global.css` |
 | A page | `src/pages/<name>.astro` (`about.astro` publishes as `/about`) |
@@ -105,11 +119,12 @@ When a change makes something in these files wrong, fix it in the same draft:
 | Plan, profile, interview answers | `docs/project/` |
 | Colors, fonts, logo and voice, in words | `docs/project/brand.md` |
 | Files the person uploaded | `docs/project/brand-files/` (logo, guidelines), `docs/project/uploads/` (photos and documents for pages). Not published; copy what a page needs into `public/` |
-| Every page, its purpose, menu placement and status | `docs/project/sitemap.md`; keep it in step when pages are added, renamed or removed |
+| Every page, its purpose, menu placement and status | `docs/project/sitemap.md`; **publish** keeps it in step when pages are added, renamed or removed |
+| Browser tab icon | `public/favicon.svg`; change its color with the main color |
 | Decision records | `docs/adr/` |
 | Guide for the person / for a helper | `docs/EDITING-GUIDE.md`, `docs/RUNBOOK.md` |
 | Template version | `version` in `package.json`; changes listed in `CHANGELOG.md` |
-| Checks on the built site | `npm run check` (`scripts/check.mjs`), on GitHub in `.github/workflows/check.yml` |
+| Checks on the built site | `npm run check` (`scripts/check.mjs`): links, colors, text contrast, outside companies; on GitHub in `.github/workflows/check.yml` |
 | Other companies the owner approved (embeds, widgets) | `src/third-parties.json`; `npm run check` fails on any other outside host |
 
 Every fact a visitor or a search engine needs is in the page's HTML. Don't move content into JavaScript that runs in the browser; search engines and AI tools often don't run it.
